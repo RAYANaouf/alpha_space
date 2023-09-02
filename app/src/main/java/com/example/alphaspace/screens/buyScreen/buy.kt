@@ -8,10 +8,15 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.alphaspace.screens.buyScreen.scenes.FirstScene
 import com.example.alphaspace.screens.buyScreen.sections.ItemsSection
 import com.example.alphaspace.screens.buyScreen.sections.NewBoxSection
 
@@ -20,20 +25,30 @@ fun BuyScreen() {
 
     Column() {
 
-        NewBoxSection(
-            modifier = Modifier
-        )
+        var screen by remember {
+            mutableStateOf(false)
+        }
 
 
-        Spacer(modifier = Modifier.height(36.dp))
+        if(screen){
+            NewBoxSection(
+                modifier = Modifier
+            )
 
-        ItemsSection(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 26.dp)
-        )
 
-        Spacer(modifier = Modifier.height(36.dp))
+            Spacer(modifier = Modifier.height(36.dp))
+
+            ItemsSection(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 26.dp)
+            )
+
+            Spacer(modifier = Modifier.height(36.dp))
+        }
+        else{
+            FirstScene()
+        }
     }
 }
 

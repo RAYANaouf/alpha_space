@@ -24,6 +24,8 @@ import co.yml.charts.ui.linechart.model.LineStyle
 import co.yml.charts.ui.linechart.model.SelectionHighlightPoint
 import co.yml.charts.ui.linechart.model.SelectionHighlightPopUp
 import co.yml.charts.ui.linechart.model.ShadowUnderLine
+import com.example.alphaspace.screens.statisticsScreen.sections.CalendarSection
+import com.example.alphaspace.screens.statisticsScreen.sections.InteractionSection
 import com.example.alphaspace.screens.statisticsScreen.sections.StatisticsGraph
 import com.example.alphaspace.screens.statisticsScreen.sections.StatisticsInfo
 
@@ -50,7 +52,21 @@ fun StatisticsScreen() {
                 .fillMaxWidth(0.3f)
         )
 
+        CalendarSection(
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .fillMaxHeight(0.5f)
+                .fillMaxWidth(0.3f)
+                .padding(top = 16.dp)
+        )
 
+        InteractionSection(
+            modifier = Modifier
+                .align(Alignment.BottomStart)
+                .fillMaxHeight(0.4f)
+                .fillMaxWidth(0.7f)
+                .padding(top = 16.dp , end = 16.dp)
+        )
 
     }
 }

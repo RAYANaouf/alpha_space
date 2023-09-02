@@ -14,7 +14,6 @@ fun BestCommentBox(
 ) {
     Surface(
         shape = RoundedCornerShape(12.dp),
-        
     ) {
         Box(
             modifier = modifier

@@ -39,7 +39,7 @@ val textColor_light = Color(0xFF555555)
 
 /*********************   text colors   ***********************/
 
-val textColor1 = Color(0xFF555555)
+val textColor1 = Color(0xFF444444)
 val textColor2 = Color(0xFF777777)
 val textColor3 = Color(0xFF999999)
 val textColor4 = Color(0xFFAAAAAA)

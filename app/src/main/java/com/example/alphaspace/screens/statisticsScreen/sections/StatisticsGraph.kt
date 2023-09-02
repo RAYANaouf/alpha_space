@@ -94,7 +94,7 @@ fun StatisticsGraph(
         color = CustomWhite_background,
         shape = RoundedCornerShape(12.dp),
         border = BorderStroke(2.dp , color = iconColor_border_p1),
-        shadowElevation = 2.dp,
+        shadowElevation = 6.dp,
         modifier = modifier
     ) {
         Box(
