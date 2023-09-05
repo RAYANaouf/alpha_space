@@ -136,6 +136,7 @@ fun StockSectionHeader() {
         Spacer(modifier = Modifier.width(26.dp))
 
         Box(
+            contentAlignment = Alignment.CenterStart,
             modifier = Modifier
                 .weight(1f),
         ) {

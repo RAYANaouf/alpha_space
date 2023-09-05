@@ -16,7 +16,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.alphaspace.screens.buyScreen.scenes.FirstScene
+import com.example.alphaspace.screens.buyScreen.scenes.InitScene
+import com.example.alphaspace.screens.buyScreen.scenes.NewBoxScene
 import com.example.alphaspace.screens.buyScreen.sections.ItemsSection
 import com.example.alphaspace.screens.buyScreen.sections.NewBoxSection
 
@@ -26,33 +27,20 @@ fun BuyScreen() {
     Column() {
 
         var screen by remember {
-            mutableStateOf(false)
+            mutableStateOf(true)
         }
 
 
         if(screen){
-            NewBoxSection(
-                modifier = Modifier
-            )
-
-
-            Spacer(modifier = Modifier.height(36.dp))
-
-            ItemsSection(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 26.dp)
-            )
-
-            Spacer(modifier = Modifier.height(36.dp))
+            NewBoxScene()
         }
         else{
-            FirstScene()
+            InitScene()
         }
     }
 }
 
-@Preview(widthDp = 1200 , heightDp = 800)
+@Preview(widthDp = 1000 , heightDp = 800)
 @Composable
 fun BuyScreen_preview() {
     BuyScreen()
