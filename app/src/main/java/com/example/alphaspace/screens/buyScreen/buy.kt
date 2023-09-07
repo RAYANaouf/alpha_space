@@ -27,15 +27,22 @@ fun BuyScreen() {
     Column() {
 
         var screen by remember {
-            mutableStateOf(true)
+            mutableStateOf("init")
         }
 
 
-        if(screen){
+        if(screen == "New box"){
             NewBoxScene()
         }
+        else if (screen == "Restock"){
+
+        }
         else{
-            InitScene()
+            InitScene(
+                onClick = {
+                    screen = "$it"
+                }
+            )
         }
     }
 }

@@ -38,7 +38,9 @@ import com.example.alphaspace.ui.theme.color4
 import com.example.alphaspace.ui.theme.iconColor_border_p1
 
 @Composable
-fun InitScene() {
+fun InitScene(
+    onClick : (screen : String) -> Unit = {}
+) {
 
     Box(
         contentAlignment = Alignment.Center,
@@ -55,8 +57,9 @@ fun InitScene() {
         ) {
             InitSceneItem(
                 img = R.drawable.add_stock_box,
-                txt = "new box",
-                modifier = Modifier.weight(2f)
+                txt = "New box",
+                modifier = Modifier.weight(2f),
+                onClick = onClick
             )
 
             Spacer(modifier = Modifier.weight(1f))
@@ -64,6 +67,7 @@ fun InitScene() {
             InitSceneItem(
                 img = R.drawable.restock,
                 txt = "Restock",
+                onClick = onClick,
                 modifier = Modifier.weight(2f)
             )
         }
@@ -75,7 +79,8 @@ fun InitScene() {
 fun InitSceneItem(
     @DrawableRes img : Int ,
     txt : String ,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClick: (screen : String ) -> Unit
 ) {
 
     Surface(
@@ -88,7 +93,9 @@ fun InitSceneItem(
         shadowElevation = 4.dp,
         modifier = modifier
             .height(300.dp)
-            .clickable { }
+            .clickable {
+                onClick("$txt")
+            }
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -132,6 +139,8 @@ fun InitScene_preview() {
 fun InitSceneItem_preview() {
     InitSceneItem(
         img = R.drawable.new_stock,
-        txt = "new box",)
+        txt = "new box",
+        onClick = {}
+    )
 }
 

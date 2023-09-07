@@ -35,7 +35,7 @@ fun Pointers(
     Column(
         modifier = modifier
     ) {
-        Text(text = "Pointers:")
+        Text(text = "Pointers")
 
         Spacer(modifier = Modifier.height(8.dp))
 

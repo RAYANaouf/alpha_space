@@ -1,7 +1,11 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.devtools.ksp'
+
 }
+
+
 
 android {
     namespace 'com.example.alphaspace'
@@ -76,8 +80,10 @@ dependencies {
     implementation 'co.yml:ycharts:2.1.0'
 
 
-
-
+    //Room
+    implementation("androidx.room:room-runtime:2.5.2")
+    ksp("androidx.room:room-compiler:2.5.2")
+    implementation("androidx.room:room-ktx:2.5.2")
 
 
 }
