@@ -4,7 +4,7 @@ import com.example.alphaspace.Model.types.Category
 import com.example.alphaspace.R
 
 
-class Categories {
+class CategoriesDATA {
     companion object{
         val categories = listOf(
             Category("flip flops" , R.drawable.flip_flops),

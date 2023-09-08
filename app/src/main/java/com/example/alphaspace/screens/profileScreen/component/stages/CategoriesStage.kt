@@ -33,7 +33,7 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.alphaspace.Model.data.Categories
+import com.example.alphaspace.Model.data.CategoriesDATA
 import com.example.alphaspace.Model.types.Category
 import com.example.alphaspace.R
 import com.example.alphaspace.ui.theme.categoryIcons_background
@@ -47,7 +47,7 @@ import com.example.alphaspace.ui.theme.navigationRail_backgroundColor
 @Composable
 fun CategoriesStage(
     modifier: Modifier = Modifier,
-    categories: List<Category> = Categories.categories
+    categories: List<Category> = CategoriesDATA.categories
 ) {
     LazyVerticalGrid(
         columns = GridCells.Adaptive(80.dp),
@@ -96,6 +96,6 @@ fun CategoriesStage_preview() {
 @Preview
 @Composable
 fun Category_preview() {
-    Category(category = Categories.categories[0])
+    Category(category = CategoriesDATA.categories[0])
 }
 

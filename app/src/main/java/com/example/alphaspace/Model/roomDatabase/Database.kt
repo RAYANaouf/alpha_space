@@ -4,12 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.alphaspace.Model.data.Categories
+import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.alphaspace.Model.roomDatabase.DAO.CategoryDAO
+import com.example.alphaspace.Model.roomDatabase.classes.Category
 
-@Database(entities = [Categories::class] ,  version = 1, exportSchema = false)
+@Database(entities = [Category::class] ,  version = 1, exportSchema = false)
 abstract class MyDatabase : RoomDatabase() {
 
-    abstract fun getCategoryDao(): Categories
+    abstract fun getCategoryDao(): CategoryDAO
 
     companion object {
 

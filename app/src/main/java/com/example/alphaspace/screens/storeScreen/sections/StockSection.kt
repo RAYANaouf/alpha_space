@@ -50,8 +50,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.alphaspace.Model.data.Categories
+import com.example.alphaspace.Model.data.CategoriesDATA
 import com.example.alphaspace.Model.types.Category
 import com.example.alphaspace.R
 import com.example.alphaspace.ui.theme.CustomWhite_background
@@ -59,18 +58,12 @@ import com.example.alphaspace.ui.theme.categoryIcons_background
 import com.example.alphaspace.ui.theme.categoryIcons_border
 import com.example.alphaspace.ui.theme.categoryIcons_content
 import com.example.alphaspace.ui.theme.color4
-import com.example.alphaspace.ui.theme.color5
 import com.example.alphaspace.ui.theme.iconColor_border_p1
-import com.example.alphaspace.ui.theme.navigationRail_backgroundColor
 import com.example.alphaspace.ui.theme.textColor1
-import com.example.alphaspace.ui.theme.textColor2
-import com.example.alphaspace.ui.theme.textColor3
-
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun StockSection(
     modifier: Modifier = Modifier,
-    categories : List<Category> = Categories.categories
+    categories : List<Category> = CategoriesDATA.categories
 ) {
     Box(
         contentAlignment = Alignment.Center,
