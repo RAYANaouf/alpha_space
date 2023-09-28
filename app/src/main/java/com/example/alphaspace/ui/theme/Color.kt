@@ -5,8 +5,18 @@ import androidx.compose.ui.graphics.Color
 
 
 /**********  white background ********************/
-val CustomWhite_background = Color(0xFFFEFFFF)
+val CustomWhite0 = Color(0xFFFEFFFF)
 /*************************************************/
+
+/**********  black background ********************/
+val CustomBlack0 = Color(0xFF202020)
+/*************************************************/
+
+/**********  gray background ********************/
+val CustomGray0 = Color(0xFFFAFAFA
+)
+/*************************************************/
+
 
 val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
@@ -18,9 +28,9 @@ val Pink40 = Color(0xFF7D5260)
 
 val color1 = Color(0xFF254E7A)
 val color2 = Color(0xFF5584B0)
-val color3 = Color(0xFF81C2E6)
-val color4 = Color(0xFFF0FFFF)
-val color5 = Color(0xFFF8FFFF)
+val color3 = Color(0xFFEEFFFF)
+val color4 = Color(0xFFE0FFFF)
+val color5 = Color(0xFFCDFFFF)
 //val navigationRail_backgroundColor = Color(0xFFB6D9EE)
 val navigationRail_backgroundColor = Color(0xFFCBEBFF)
 

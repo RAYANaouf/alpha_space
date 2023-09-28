@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+
     id 'org.jetbrains.kotlin.android'
     id 'com.google.devtools.ksp'
 
@@ -72,9 +73,20 @@ dependencies {
     //ui controller
     implementation "com.google.accompanist:accompanist-systemuicontroller:0.30.1"
 
+    //material design
+    // https://mvnrepository.com/artifact/androidx.compose.material3/material3
+    runtimeOnly("androidx.compose.material3:material3:1.1.2")
+
+
+    //view model
+    // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-viewmodel-compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+
+
     //navigation
     // https://mvnrepository.com/artifact/androidx.navigation/navigation-compose
     implementation "androidx.navigation:navigation-compose:2.6.0"
+    
 
     //chart
     implementation 'co.yml:ycharts:2.1.0'
@@ -84,6 +96,21 @@ dependencies {
     implementation("androidx.room:room-runtime:2.5.2")
     ksp("androidx.room:room-compiler:2.5.2")
     implementation("androidx.room:room-ktx:2.5.2")
+
+    // google sign in library
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
+
+    //lottie
+    //pretty animation "json format"
+    implementation("com.airbnb.android:lottie-compose:6.1.0")
+
+
+    //time picker
+    // https://mvnrepository.com/artifact/io.github.vanpra.compose-material-dialogs/datetime
+    implementation("io.github.vanpra.compose-material-dialogs:datetime:0.9.0")
+
+
+
 
 
 }

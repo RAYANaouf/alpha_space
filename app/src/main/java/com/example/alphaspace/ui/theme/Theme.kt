@@ -22,7 +22,7 @@ private val DarkColorScheme = darkColorScheme(
     secondary = PurpleGrey80,
     tertiary = Pink80,
     surface = color3,
-    background = color4
+    background = color3
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -30,7 +30,7 @@ private val LightColorScheme = lightColorScheme(
     secondary = PurpleGrey40,
     tertiary = Pink40,
     surface = color3,
-    background = color4
+    background = color3
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -66,7 +66,7 @@ fun AlphaSpaceTheme(
         SideEffect {
             val window = (view.context as Activity).window
 //            window.statusBarColor = colorScheme.primary.toArgb()
-            window.statusBarColor = Color(parseColor("#F2FFFF")).toArgb()
+            window.statusBarColor = color3.toArgb()
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = true
         }
     }

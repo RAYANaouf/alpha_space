@@ -1,19 +1,18 @@
 package com.example.alphaspace
 
 import android.annotation.SuppressLint
-import android.graphics.Color.parseColor
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationRail
@@ -23,36 +22,72 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.alphaspace.screens.buyScreen.BuyScreen
-import com.example.alphaspace.screens.historyScreen.HistoryScreen
-import com.example.alphaspace.screens.open_closeScreen.Open_CloseScreen
-import com.example.alphaspace.screens.profileScreen.Profilecreen
-import com.example.alphaspace.screens.settingsScreen.SettingScreen
-import com.example.alphaspace.screens.statisticsScreen.StatisticsScreen
-import com.example.alphaspace.screens.storeScreen.StoreScreen
+import com.example.alphaspace.Model.data.screens_set
+import com.example.alphaspace.Model.viewModel.AlphaViewModel
+import com.example.alphaspace.screens.fullScreen.LoadingScreen.LoadingScreen
+import com.example.alphaspace.screens.mainScreens.buyScreen.BuyScreen
+import com.example.alphaspace.screens.fullScreen.SignInScreen.SignInScreen
+import com.example.alphaspace.screens.fullScreen.setUpScreen.SetUpScreen
+import com.example.alphaspace.screens.mainScreens.historyScreen.HistoryScreen
+import com.example.alphaspace.screens.mainScreens.open_closeScreen.Open_CloseScreen
+import com.example.alphaspace.screens.mainScreens.profileScreen.Profilecreen
+import com.example.alphaspace.screens.mainScreens.settingsScreen.SettingScreen
+import com.example.alphaspace.screens.mainScreens.statisticsScreen.StatisticsScreen
+import com.example.alphaspace.screens.mainScreens.storeScreen.StoreScreen
 import com.example.alphaspace.ui.theme.AlphaSpaceTheme
+import com.example.alphaspace.ui.theme.color3
 import com.example.alphaspace.ui.theme.color4
+import com.example.alphaspace.ui.theme.color5
 import com.example.alphaspace.ui.theme.navigationRail_backgroundColor
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
+
+    val viewModel by viewModels<AlphaViewModel>(
+        factoryProducer = {
+            return@viewModels object : ViewModelProvider.Factory{
+                override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                    if(modelClass.isAssignableFrom(AlphaViewModel::class.java)){
+                        return AlphaViewModel(this@MainActivity) as T
+                    }
+                    else
+                        throw java.lang.IllegalArgumentException("can't create that viewModel class (AlphaViewModel class)")
+                }
+            }
+        }
+    )
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
+
 
             AlphaSpaceTheme {
 
@@ -60,12 +95,77 @@ class MainActivity : ComponentActivity() {
 
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = color3,
                 ) {
-                    MainScreen()
+
+                    when(viewModel.screenHandler.screen){
+
+                        screens_set.mainScreen->{
+                            MainScreen(viewModel)
+                        }
+
+                        screens_set.signInScreen->{
+                            SignInScreen(
+                                onDone = {
+//                                signIn = true
+                                } ,
+                                googleSignInBtn = {googleAccount->
+
+                                    if (googleAccount != null){
+
+                                        viewModel.connectHandler.setAccount(googleAccount)
+                                        viewModel.changeScreen(screens_set.loading_checkForSetUp)
+
+                                        checkUserExistence((viewModel.connectHandler.googleSignInAccount?.id)?:""){isExist->
+                                            if (isExist){
+                                                viewModel.changeScreen(screens_set.mainScreen)
+                                            }
+                                            else{
+                                                viewModel.changeScreen(screens_set.setUpScreen)
+                                            }
+                                        }
+
+                                    }
+                                }
+                            )
+                        }
+
+                        screens_set.loading_checkForSetUp->{
+                            LoadingScreen(
+                                viewModel = viewModel
+                            )
+
+                            LaunchedEffect(key1 =  viewModel.connectHandler.googleSignInAccount?.id){
+
+                                async { delay(1500) }.await()
+
+                                viewModel.getUserByGoogleAccountId(viewModel.connectHandler.googleSignInAccount?.id ?: ""){user->
+                                    if (user != null){
+                                        viewModel.setUser(user)
+                                        viewModel.screenHandler.setAppScreen(screens_set.mainScreen)
+                                    }
+                                    else{
+                                        viewModel.screenHandler.setAppScreen(screens_set.setUpScreen
+                                        )
+                                    }
+                                }
+                            }
+
+                        }
+
+                        screens_set.setUpScreen->{
+                            SetUpScreen(
+                                viewModel = viewModel
+                            )
+                        }
+
+                    }
+
                 }
             }
         }
+
+
     }
 
     @Composable
@@ -78,7 +178,7 @@ class MainActivity : ComponentActivity() {
             // Update all of the system bar colors to be transparent, and use
             // dark icons if we're in light theme
             systemUiController.setSystemBarsColor(
-                color = color4,
+                color = color3 ,
                 darkIcons = useDarkIcons
             )
 
@@ -89,14 +189,34 @@ class MainActivity : ComponentActivity() {
     }
 
 
+    fun checkUserExistence(googleAccountId : String , callBack : (isExist : Boolean)->Unit){
+        GlobalScope.launch {
+
+            async { delay(1500) }.await()
+
+            viewModel.getUserByGoogleAccountId(googleAccountId){user->
+                if (user != null){
+                    callBack(true)
+                }
+                else{
+                    callBack(false)
+                }
+            }
+        }
+    }
+
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun MainScreen() {
+fun MainScreen(
+    viewModel : AlphaViewModel
+) {
 
-    var screens = listOf("profile","statistic","buy","about","settings","close")
+    /***************       context         ******************/
+    val context = LocalContext.current
+    /********************************************************/
 
     /***************       set up          *****************/
 
@@ -122,6 +242,7 @@ fun MainScreen() {
 //                        12.dp,
 //
 //                    ),
+            color = color3
             ) {
                 NavigationRail(
                     containerColor = navigationRail_backgroundColor,
@@ -266,6 +387,9 @@ fun MainScreen() {
                                     launchSingleTop = true
                                     // Restore state when reselecting a previously selected item
                                     restoreState = true
+
+                                    viewModel.signOut()
+
                                 }
                             },
                             colors = navigationRailItemColors,
@@ -283,7 +407,11 @@ fun MainScreen() {
                 modifier = Modifier
                     .fillMaxSize()
             ) {
-                composable("profile") { Profilecreen() }
+                composable("profile") {
+                    Profilecreen(
+                        viewModel
+                    )
+                }
                 composable("store") { StoreScreen() }
                 composable("statistics") { StatisticsScreen() }
                 composable("buy") { BuyScreen() }
@@ -296,10 +424,26 @@ fun MainScreen() {
     }
 }
 
+
+
 @Preview(showBackground = true , widthDp = 1200 , heightDp = 800)
 @Composable
 fun GreetingPreview() {
     AlphaSpaceTheme {
-        MainScreen()
+
+        val context = LocalContext.current
+        MainScreen(
+            viewModel = viewModel(
+                factory = object :ViewModelProvider.Factory{
+                    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                        if(modelClass.isAssignableFrom(AlphaViewModel::class.java)){
+                            return AlphaViewModel(context) as T
+                        }
+                        else
+                            throw java.lang.IllegalArgumentException("can't create that viewModel class (AlphaViewModel class)")
+                    }
+                }
+            )
+        )
     }
 }
