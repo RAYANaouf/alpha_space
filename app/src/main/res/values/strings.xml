@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">alpha space</string>
+    <string name="app_name">Alpha space</string>
+    <string name="shoes_Store">Shoes Store</string>
+    <string name="man_clothes">Man clothes</string>
+    <string name="women_clothes">Women clothes</string>
+    <string name="sport_clothes">Sport clothes</string>
+    <string name="watch_store">Watch store</string>
+    <string name="glasses_store">Glasses store</string>
+    <string name="next">Next</string>
+    <string name="done">Done</string>
+    <string name="userInsertionFailure">failed to insert user</string>
+
+
 </resources>

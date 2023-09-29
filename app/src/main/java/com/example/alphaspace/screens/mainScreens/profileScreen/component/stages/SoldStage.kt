@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -32,7 +31,7 @@ import com.example.alphaspace.R
 import com.example.alphaspace.ui.theme.color4
 
 @Composable
-fun SoldStage(modifier: Modifier = Modifier , items : List<Int> = listOf(R.drawable.shoes , R.drawable.shoes2, R.drawable.shoes3,R.drawable.shoes4 , R.drawable.shoes5, R.drawable.shoes6,R.drawable.shoes7 , R.drawable.shoes8
+fun SoldStage(modifier: Modifier = Modifier , items : List<Int> = listOf(R.drawable.shoes1 , R.drawable.shoes2, R.drawable.shoes3,R.drawable.shoes4 , R.drawable.shoes5, R.drawable.shoes6,R.drawable.shoes7 , R.drawable.shoes8
     , R.drawable.shoes10,R.drawable.shoes11 , R.drawable.shoes12, R.drawable.shoes13)) {
     Column(
         modifier = modifier.fillMaxWidth()
@@ -51,7 +50,7 @@ fun SoldStage(modifier: Modifier = Modifier , items : List<Int> = listOf(R.drawa
 }
 
 @Composable
-fun SoldCard(img : Int = R.drawable.shoes) {
+fun SoldCard(img : Int = R.drawable.shoes1) {
     Surface(
         shadowElevation = 3.dp,
         shape = RoundedCornerShape(16.dp),

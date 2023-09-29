@@ -85,7 +85,7 @@ fun AgeQuestion(
     ) {
         Text(
             text = "Age :",
-            style = textStyles.textStyle,
+            style = textStyles.textStyle_size1,
         )
 
         Row(
@@ -156,7 +156,7 @@ fun SexQuestion(
     ) {
         Text(
             text = "Sex :",
-            style = textStyles.textStyle,
+            style = textStyles.textStyle_size1,
         )
 
         Row(
@@ -187,7 +187,7 @@ fun SexQuestion(
 
                 Text(
                     text = sex ,
-                    style = textStyles.textStyle
+                    style = textStyles.textStyle_size1
                 )
 
                 AlphaDropDownMenu(

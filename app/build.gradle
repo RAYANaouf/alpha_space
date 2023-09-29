@@ -86,7 +86,7 @@ dependencies {
     //navigation
     // https://mvnrepository.com/artifact/androidx.navigation/navigation-compose
     implementation "androidx.navigation:navigation-compose:2.6.0"
-    
+
 
     //chart
     implementation 'co.yml:ycharts:2.1.0'

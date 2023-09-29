@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -46,8 +45,6 @@ import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import com.example.alphaspace.R
 import com.example.alphaspace.screens.mainScreens.buyScreen.component.Pointers
-import com.example.alphaspace.screens.mainScreens.buyScreen.sections.ItemsSection
-import com.example.alphaspace.screens.mainScreens.buyScreen.sections.NewBoxSection
 import com.example.alphaspace.ui.theme.CustomWhite0
 import com.example.alphaspace.ui.theme.categoryIcons_content
 import com.example.alphaspace.ui.theme.iconColor_border_p1
@@ -305,7 +302,7 @@ fun ItemsSectionItem(modifier: Modifier = Modifier) {
 
                 Image(
 
-                    painter = painterResource(id = R.drawable.shoes),
+                    painter = painterResource(id = R.drawable.shoes1),
                     contentDescription = "",
                     contentScale = ContentScale.Crop,
                     modifier = Modifier

@@ -41,7 +41,6 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun LoadingScreen(
-    viewModel : AlphaViewModel,
     modifier: Modifier = Modifier
 ) {
 
@@ -53,9 +52,6 @@ fun LoadingScreen(
 
         loadingAnimation(
             Modifier
-                .clickable {
-               viewModel.changeScreen(screens_set.mainScreen)
-            }
         )
 
     }
@@ -101,20 +97,5 @@ fun loadingAnimation(
 @Preview(widthDp = 1200 , heightDp = 800)
 @Composable
 fun LoadingScreen_preview() {
-
-    val context = LocalContext.current
-
-    LoadingScreen(
-        viewModel = viewModel(
-            factory = object : ViewModelProvider.Factory{
-                override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                    if (modelClass.isAssignableFrom(AlphaViewModel::class.java)){
-                        return AlphaViewModel(context) as T
-                    }
-                    else
-                        throw IllegalArgumentException("can't create AlphaViewModel  (loadingScreen)")
-                }
-            }
-        )
-    )
+    LoadingScreen()
 }

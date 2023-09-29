@@ -1,6 +1,7 @@
 package com.example.alphaspace.screens.fullScreen.setUpScreen.sections.LeftSide
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth

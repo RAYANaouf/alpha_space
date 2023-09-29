@@ -4,6 +4,8 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
@@ -17,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.alphaspace.ui.theme.CustomWhite0
@@ -34,6 +37,7 @@ fun AlphaTextField(
     hint : String ,
     hintStyle : TextStyle,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    visualTransformation : VisualTransformation = VisualTransformation.None,
     cursorColor : Color = Color.Black
 ) {
 
@@ -58,8 +62,9 @@ fun AlphaTextField(
             },
             textStyle = textFieldStyle,
             cursorBrush = SolidColor(cursorColor),
-            keyboardOptions = keyboardOptions
-
+            keyboardOptions = keyboardOptions,
+            visualTransformation = visualTransformation,
+            modifier = Modifier.fillMaxWidth()
         )
 
         if (text == ""){

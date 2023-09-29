@@ -44,7 +44,7 @@ fun WorkingTime(
     Column {
         Text(
             text = "Working Time",
-            style = textStyles.textStyle
+            style = textStyles.textStyle_size1
         )
 
         Spacer(modifier = Modifier.height(20.dp))
@@ -99,7 +99,7 @@ fun SetTime(
     ) {
         Text(
             text = "$text : ",
-            style = textStyles.textStyle.copy(fontSize = TextUnit(26f , TextUnitType.Sp)),
+            style = textStyles.textStyle_size1.copy(fontSize = TextUnit(26f , TextUnitType.Sp)),
             modifier = Modifier
                 .weight(2f)
         )
@@ -132,7 +132,7 @@ fun SetTime(
             ){
                 Text(
                     text = time,
-                    style = textStyles.textStyle
+                    style = textStyles.textStyle_size1
                 )
             }
         }

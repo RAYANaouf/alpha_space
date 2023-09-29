@@ -36,8 +36,6 @@ fun RightSideSection(
     modifier: Modifier = Modifier
 ) {
 
-
-
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
@@ -69,7 +67,7 @@ fun AddLogo(
         ) {
             Text(
                 text = "Logo" ,
-                style = textStyles.textStyle
+                style = textStyles.textStyle_size1
             )
 
             Spacer(modifier = Modifier.width(16.dp))
@@ -95,7 +93,7 @@ fun AddLocation(
         ) {
             Text(
                 text = "Location",
-                style = textStyles.textStyle
+                style = textStyles.textStyle_size1
             )
             
             Spacer(modifier = Modifier.width(26.dp))

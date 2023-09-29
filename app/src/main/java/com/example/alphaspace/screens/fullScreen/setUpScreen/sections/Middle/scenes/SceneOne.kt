@@ -10,10 +10,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.alphaspace.Model.data.TextStyles.textStyles
 import com.example.alphaspace.screens.common.AlphaTextField
+import com.example.alphaspace.screens.fullScreen.setUpScreen.sections.Middle.component.SexAndAgeQuestion
 import com.example.alphaspace.ui.theme.iconColor_border_p1
 
 @Composable
 fun SceneOne(
+    age : String,
+    sex : String,
     storeName : String ,
     firstName : String,
     lastName : String,
@@ -70,6 +73,23 @@ fun SceneOne(
                 .fillMaxWidth()
                 .height(60.dp)
         )
+
+        Spacer(modifier = Modifier.height(36.dp))
+
+        SexAndAgeQuestion(
+            sex = sex,
+            age = age,
+            onSexSet = {
+                onTextFieldCharge("sex",it)
+            },
+            onAgeSet = {
+                onTextFieldCharge("age",it)
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(60.dp)
+        )
+
     }
 }
 
@@ -77,6 +97,8 @@ fun SceneOne(
 @Composable
 fun SceneOne_preview() {
     SceneOne(
+        age = "",
+        sex = "",
         storeName  = "",
         firstName = "",
         lastName = ""

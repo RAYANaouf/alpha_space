@@ -47,6 +47,11 @@ val categoryIcons_content = iconColor_border_p1
 val textColor_light = Color(0xFF555555)
 /**************************************************************/
 
+/*********** img color  *****************/
+val blue1 = Color(0xFF195D82)
+val blue2 = Color(0xFF1D71A0)
+/****************************************/
+
 /*********************   text colors   ***********************/
 
 val textColor1 = Color(0xFF333333)

@@ -131,13 +131,11 @@ class MainActivity : ComponentActivity() {
                         }
 
                         screens_set.loading_checkForSetUp->{
-                            LoadingScreen(
-                                viewModel = viewModel
-                            )
+                            LoadingScreen()
 
                             LaunchedEffect(key1 =  viewModel.connectHandler.googleSignInAccount?.id){
 
-                                async { delay(1500) }.await()
+                                delay(1500)
 
                                 viewModel.getUserByGoogleAccountId(viewModel.connectHandler.googleSignInAccount?.id ?: ""){user->
                                     if (user != null){
