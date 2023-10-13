@@ -6,7 +6,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -14,7 +13,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationRail
 import androidx.compose.material3.NavigationRailItem
 import androidx.compose.material3.NavigationRailItemDefaults
@@ -26,7 +24,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -55,12 +52,8 @@ import com.example.alphaspace.screens.mainScreens.storeScreen.StoreScreen
 import com.example.alphaspace.ui.theme.AlphaSpaceTheme
 import com.example.alphaspace.ui.theme.color3
 import com.example.alphaspace.ui.theme.color4
-import com.example.alphaspace.ui.theme.color5
 import com.example.alphaspace.ui.theme.navigationRail_backgroundColor
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
@@ -91,7 +84,7 @@ class MainActivity : ComponentActivity() {
 
             AlphaSpaceTheme {
 
-                setUpUI()
+//                setUpUI()
 
                 Surface(
                     modifier = Modifier.fillMaxSize(),

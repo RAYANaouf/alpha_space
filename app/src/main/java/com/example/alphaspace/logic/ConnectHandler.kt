@@ -7,6 +7,7 @@ import androidx.activity.result.ActivityResult
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import com.example.alphaspace.Model.room.entities.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -18,6 +19,7 @@ class ConnectHandler{
 
     var googleSignInAccount by mutableStateOf<GoogleSignInAccount?>(null)
         private set
+
     var isSignIn by mutableStateOf(false)
         private set
 

@@ -50,6 +50,9 @@ val textColor_light = Color(0xFF555555)
 /*********** img color  *****************/
 val blue1 = Color(0xFF195D82)
 val blue2 = Color(0xFF1D71A0)
+val blue3 = Color(0xFF2388C1)
+
+val blue6 = Color(0xFFEAF9FA)
 /****************************************/
 
 /*********************   text colors   ***********************/

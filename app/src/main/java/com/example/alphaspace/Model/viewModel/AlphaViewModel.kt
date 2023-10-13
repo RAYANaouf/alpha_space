@@ -2,6 +2,7 @@ package com.example.alphaspace.Model.viewModel
 
 import android.content.Context
 import android.widget.Toast
+import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.alphaspace.Model.data.screens_set
@@ -38,7 +39,7 @@ class AlphaViewModel : ViewModel {
     var user : User? = null
         private set
 
-    private val _userStoreTypes  = mutableListOf<StoreType>()
+    private val _userStoreTypes  = mutableStateListOf<StoreType>()
     val userStoreTypes : List<StoreType>
         get() = _userStoreTypes
 

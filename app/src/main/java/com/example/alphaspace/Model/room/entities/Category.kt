@@ -9,6 +9,5 @@ data class Category (
     @PrimaryKey(autoGenerate = true)
     val cat_id   : Int = 0 ,
     val name : String ,
-    val type : String ,
     val icon  : Int ,
 )

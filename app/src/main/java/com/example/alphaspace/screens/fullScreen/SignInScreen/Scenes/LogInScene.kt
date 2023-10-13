@@ -51,8 +51,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 
 
 @Composable
-fun
-        LogInScene(
+fun LogInScene(
     modifier: Modifier = Modifier ,
     onNextBtnClicked : ()->Unit = {} ,
     onSignInClicked  : (googleAccount : GoogleSignInAccount)->Unit = {}

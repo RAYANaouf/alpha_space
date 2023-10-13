@@ -1,6 +1,5 @@
 package com.example.alphaspace.screens.mainScreens.profileScreen.component.slots
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -21,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun SlotStage( text : String = "" , content : @Composable ()->Unit = {} ) {
+fun stage1_slot( text : String = "" , content : @Composable ()->Unit = {} ) {
     Column() {
 
         Row(
@@ -68,5 +67,5 @@ fun SlotStage( text : String = "" , content : @Composable ()->Unit = {} ) {
 @Preview
 @Composable
 fun SlotStage_preview() {
-    SlotStage()
+    stage1_slot()
 }

@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.alphaspace.Model.data.TextStyles.textStyles
-import com.example.alphaspace.screens.common.AlphaTextField
+import com.example.alphaspace.screens.common.textFields.AlphaTextField
 import com.example.alphaspace.screens.fullScreen.setUpScreen.sections.Middle.component.SexAndAgeQuestion
 import com.example.alphaspace.ui.theme.iconColor_border_p1
 

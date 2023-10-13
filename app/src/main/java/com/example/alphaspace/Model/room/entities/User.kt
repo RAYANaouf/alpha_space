@@ -20,8 +20,17 @@ data class User (
 
     val sex : String,
 
-    @ColumnInfo(name = "phone_number")
-    val phoneNumber : Int,
+    @ColumnInfo(name = "user_phoneNumber")
+    val userPhoneNumber : Int,
+
+    @ColumnInfo(name = "user_gmail")
+    val userGmail : String,
+
+    @ColumnInfo(name = "supportGmail")
+    val supportGmail : String,
+
+    @ColumnInfo(name = "user_password")
+    val userPassword : String,
 
     @ColumnInfo(name = "google_account_id")
     val googleAccountId : String,

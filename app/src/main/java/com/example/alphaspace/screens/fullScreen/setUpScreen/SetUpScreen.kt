@@ -36,7 +36,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.alphaspace.Model.data.TextStyles.textStyles
 import com.example.alphaspace.Model.data.screens_set
-import com.example.alphaspace.Model.room.entities.StoreType
 import com.example.alphaspace.Model.room.entities.User
 import com.example.alphaspace.Model.viewModel.AlphaSetUpViewModel
 import com.example.alphaspace.Model.viewModel.AlphaViewModel
@@ -365,7 +364,10 @@ fun SetUpScreen(
                                       lastName = lastName,
                                       age = age.toIntOrNull() ?: 21,
                                       sex = sex,
-                                      phoneNumber = phoneNumber.toIntOrNull() ?: 0,
+                                      userPhoneNumber = phoneNumber.toIntOrNull() ?: 0,
+                                      userPassword = password,
+                                      userGmail = viewModel.connectHandler.googleSignInAccount?.email ?: "",
+                                      supportGmail = supportGmail,
                                       openingHour = openingTime.hour,
                                       openingMinute = openingTime.minute,
                                       closingHour = closingTime.hour,

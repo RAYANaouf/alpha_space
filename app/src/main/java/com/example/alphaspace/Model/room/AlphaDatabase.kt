@@ -30,7 +30,7 @@ abstract class AlphaDatabase : RoomDatabase() {
         fun getDatabase(context : Context) : AlphaDatabase{
             return Instance ?: synchronized(this){
                 if (Instance == null){
-                    Room.databaseBuilder(context , AlphaDatabase::class.java , "alphav1.5")
+                    Room.databaseBuilder(context , AlphaDatabase::class.java , "alphav1.7")
                         .build()
                         .also {
                             Instance = it

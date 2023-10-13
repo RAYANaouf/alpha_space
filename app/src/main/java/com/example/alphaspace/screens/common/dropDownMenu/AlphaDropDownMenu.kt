@@ -1,4 +1,4 @@
-package com.example.alphaspace.screens.common
+package com.example.alphaspace.screens.common.dropDownMenu
 
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem

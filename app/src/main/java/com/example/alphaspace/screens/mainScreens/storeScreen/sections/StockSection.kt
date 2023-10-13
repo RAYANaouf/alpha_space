@@ -1,7 +1,5 @@
 package com.example.alphaspace.screens.mainScreens.storeScreen.sections
 
-import android.content.ClipData.Item
-import android.graphics.Color.parseColor
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -13,26 +11,21 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.Divider
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -41,7 +34,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -50,22 +42,20 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
-import com.example.alphaspace.Model.data.CategoriesDATA
-import com.example.alphaspace.Model.types.Category
+import com.example.alphaspace.Model.data.categories.CategoriesDATA
+import com.example.alphaspace.Model.room.entities.Category
 import com.example.alphaspace.R
-import com.example.alphaspace.ui.theme.CustomGray0
 import com.example.alphaspace.ui.theme.CustomWhite0
 import com.example.alphaspace.ui.theme.categoryIcons_background
 import com.example.alphaspace.ui.theme.categoryIcons_border
 import com.example.alphaspace.ui.theme.categoryIcons_content
 import com.example.alphaspace.ui.theme.color3
-import com.example.alphaspace.ui.theme.color4
 import com.example.alphaspace.ui.theme.iconColor_border_p1
 import com.example.alphaspace.ui.theme.textColor1
 @Composable
 fun StockSection(
     modifier: Modifier = Modifier,
-    categories : List<Category> = CategoriesDATA.categories
+    categories : List<Category> = CategoriesDATA.shoesStoreCategories
 ) {
     Box(
         contentAlignment = Alignment.Center,
@@ -94,7 +84,7 @@ fun StockSection(
                     contentPadding = PaddingValues(12.dp)
                 ){
                     items(categories){
-                        StockSectionItem(it.catIcon)
+                        StockSectionItem(it.icon)
                     }
                 }
 

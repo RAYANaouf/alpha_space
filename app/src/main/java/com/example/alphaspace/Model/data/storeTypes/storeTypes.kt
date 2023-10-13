@@ -12,7 +12,5 @@ object allStoreTypes {
         StoreType(img = R.drawable.sport_clothes , txt = R.string.sport_clothes),
         StoreType(img = R.drawable.watch , txt = R.string.watch_store),
         StoreType(img = R.drawable.glasses , txt = R.string.glasses_store),
-
-
         )
 }

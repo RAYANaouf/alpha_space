@@ -1,6 +1,5 @@
 package com.example.alphaspace.screens.mainScreens.profileScreen
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -20,7 +19,6 @@ import com.example.alphaspace.Model.viewModel.AlphaViewModel
 import com.example.alphaspace.screens.mainScreens.profileScreen.sections.mainSection
 import com.example.alphaspace.screens.mainScreens.profileScreen.sections.sideSection
 import com.example.alphaspace.ui.theme.AlphaSpaceTheme
-import com.example.alphaspace.ui.theme.color3
 
 @Composable
 fun Profilecreen(

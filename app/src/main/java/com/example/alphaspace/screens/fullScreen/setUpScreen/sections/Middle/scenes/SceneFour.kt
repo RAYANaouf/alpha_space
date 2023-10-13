@@ -43,7 +43,6 @@ import com.example.alphaspace.Model.data.TextStyles.textStyles
 import com.example.alphaspace.Model.data.storeTypes.allStoreTypes
 import com.example.alphaspace.Model.room.entities.StoreType
 import com.example.alphaspace.Model.viewModel.AlphaSetUpViewModel
-import com.example.alphaspace.Model.viewModel.AlphaViewModel
 import com.example.alphaspace.R
 import com.example.alphaspace.ui.theme.CustomBlack0
 import com.example.alphaspace.ui.theme.CustomGray0
